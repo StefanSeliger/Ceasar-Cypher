@@ -20,14 +20,28 @@ let ceasar=() => {
     })
 
     let inputSplit = textInput.value.toLowerCase().split("")
-
-    for (let i = 0; i < inputSplit.length; i++) {
-        for (let j = 0; j < alphabet.length; j++) {
-            if (inputSplit[i] == alphabet[j]) {
-                x += newAlphabet[j+Number(keyNumber.value)]
-                output.innerHTML = x
+    if (code.checked ) {
+        for (let i = 0; i < inputSplit.length; i++) {
+            for (let j = 0; j < alphabet.length; j++) {
+                if (inputSplit[i] == alphabet[j]) {
+                    x += newAlphabet[j+Number(keyNumber.value)]
+                    output.innerHTML = x
+                }
             }
         }
-    } 
+    } else if (decode.checked) {
+        for (let i = 0; i < inputSplit.length; i++) {
+            for (let j = 0; j < alphabet.length; j++) {
+                if (inputSplit[i] == alphabet[j]) {
+                    x += alphabet[j-Number(keyNumber.value)]
+                    output.innerHTML = x
+                }
+            }
+        }
+    } else {
+        output.innerHTML = "Ceasar Cipher Result"
+    }
+    
+    
 }
 ceasar()
