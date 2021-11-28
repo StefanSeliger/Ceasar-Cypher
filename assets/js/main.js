@@ -24,17 +24,29 @@ let ceasar=() => {
         for (let i = 0; i < inputSplit.length; i++) {
             for (let j = 0; j < alphabet.length; j++) {
                 if (inputSplit[i] == alphabet[j]) {
-                    x += newAlphabet[j+Number(keyNumber.value)]
-                    output.innerHTML = x
+                    if ((j+Number(keyNumber.value)) <= 26) {
+                        x += newAlphabet[j+Number(keyNumber.value)]
+                        output.innerHTML = x
+                    } else {
+                        x += newAlphabet[j+Number(keyNumber.value - 26)]
+                        output.innerHTML = x
+                    }
+                    
                 }
             }
-        }
+        } 
     } else if (decode.checked) {
         for (let i = 0; i < inputSplit.length; i++) {
             for (let j = 0; j < alphabet.length; j++) {
                 if (inputSplit[i] == alphabet[j]) {
-                    x += alphabet[j-Number(keyNumber.value)]
-                    output.innerHTML = x
+                    if ((j+Number(keyNumber.value)) <= 26) {
+                        x += alphabet[(j-Number(keyNumber.value))]
+                        output.innerHTML = x
+                    } else {
+                        x += alphabet[(j+Number(keyNumber.value)) -26]
+                        output.innerHTML = x
+                    }
+                    
                 }
             }
         }
